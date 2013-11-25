@@ -1,0 +1,31 @@
+html{
+	height: 100%;
+	width: 100%;
+}
+
+body{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+header{
+	height: 3em;
+	width: 100%;
+
+	background-color: rgb(0, 0, 0);
+	color: rgb(255, 255, 255);
+
+	padding-left: 1%;
+	padding-top: 1%;
+}
+
+header h1{
+	margin: 0;
+	font-size: 1.5em;
+}
+
+#map_canvas{
+	height: 100%;
+	width: 100%;
+}
