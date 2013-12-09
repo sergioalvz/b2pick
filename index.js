@@ -1,14 +1,10 @@
 $(document).ready(function(){
-	var map = new Map();
-	map.create();
+	createMap();
 });
 
-function Map(){
-	this.map = null;
-	this.drawingManager = null;
-}
+var boundingBoxesCounter = 0;
 
-Map.prototype.create = function(){
+function createMap(){
 	var centerPoint = new google.maps.LatLng(43.354810, -5.851805); // Oviedo, Asturias, Spain.
 	var options = {
 		zoom : 3,
@@ -25,22 +21,42 @@ Map.prototype.create = function(){
 	};
 
 	// Initialize variables
-	this.map = new google.maps.Map($('#map_canvas')[0], options);
-	this.drawingManager = new google.maps.drawing.DrawingManager({
+	var map = new google.maps.Map($('#map_canvas')[0], options);
+	var drawingManager = new google.maps.drawing.DrawingManager({
 	  drawingControl: true,
 	  drawingControlOptions: {
 	    position: google.maps.ControlPosition.TOP_CENTER,
 	    drawingModes: [google.maps.drawing.OverlayType.RECTANGLE]
+	  },
+	  rectangleOptions : {
+	  	draggable: true,
+	  	clickable: true,
+	  	editable: true
 	  }
 	});
-	this.drawingManager.setMap(this.map);
+	drawingManager.setMap(map);
 
-	google.maps.event.addListener(this.drawingManager, 'rectanglecomplete', function(rectangle) {
-		var swLong = rectangle.getBounds().getSouthWest().lng().toFixed(2);
-		var swLat  = rectangle.getBounds().getSouthWest().lat().toFixed(2);
-		var neLong = rectangle.getBounds().getNorthEast().lng().toFixed(2);
-		var neLat  = rectangle.getBounds().getNorthEast().lat().toFixed(2); 
-		
-  		alert(swLong + "," + swLat + "@@" + neLong + "," + neLat);
+	google.maps.event.addListener(drawingManager, 'rectanglecomplete', rectangleCompleteHandler);
+}
+
+function rectangleCompleteHandler(rectangle){
+	boundingBoxesCounter += 1;
+
+	var swLong = rectangle.getBounds().getSouthWest().lng().toFixed(2);
+	var swLat  = rectangle.getBounds().getSouthWest().lat().toFixed(2);
+	var neLong = rectangle.getBounds().getNorthEast().lng().toFixed(2);
+	var neLat  = rectangle.getBounds().getNorthEast().lat().toFixed(2); 
+	
+	var newBox = $(document.createElement('div'));
+	$(newBox).addClass('box');
+	$(newBox).attr('id', 'box_' + boundingBoxesCounter);
+	$(newBox).append('<h3>Box</h3>');
+	$(newBox).append('<p>Coordinates for Twitter:</p>');
+	$(newBox).append('<p>' + swLong + ', ' + swLat + ', ' + neLong + ', ' + neLat + '</p>');
+
+	$('section.boxes').append(newBox);
+
+	google.maps.event.addListener(rectangle, 'click', function(event){
+		console.log($('#box_1'));
 	});
-};
+}
