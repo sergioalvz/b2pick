@@ -19,6 +19,7 @@ header{
 }
 
 header h1 { font-size: 3em;  margin-left: 1em;  font-family: 'Neucha', cursive;}
+header h2 { font-size: 1.5em;  margin-left: 30px;  font-family: 'Neucha', cursive;}
 
 #main_content {
 	overflow: hidden;
@@ -40,11 +41,21 @@ section.column{
 	background-color: rgba(255, 255, 255, .7);
 }
 
-#main_content > section:first-child h2 {
-	margin-top: 1em;
+#main_content > section:first-child > section:first-child {
+	margin: 1em;
+	padding: 1em;
+	background-color: rgba(255, 255, 255, .4);
 
-	font-size: 2em;
-	text-align: center;
+	font-weight: lighter;
+}
+
+#main_content > section:first-child > section:first-child p {
+	font-size: 1.4em;
+}
+
+span.code {
+	font-size: 1em;
+	font-family: 'Ubuntu Mono', sans-serif;
 }
 
 div.box {
@@ -72,23 +83,23 @@ div.box p {
 	clear: both;
 }
 
+/* FOOTER
+ ******************************************* */
+
 footer {
 	padding: 5em;
 
-	font-family: 'Neucha', cursive;
-
 	color: rgb(255, 255, 255);
 	text-align: center;
+	font-weight: lighter;
 }
 
 footer p {
 	font-size: 1.5em;
-	font-family: 'Neucha', cursive;
 }
 
 footer p a {
 	font-size: 1em;
-	font-family: 'Neucha', cursive;
 }
 
 footer p a:link, footer p a:visited {

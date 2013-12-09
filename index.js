@@ -2,7 +2,9 @@ $(document).ready(function(){
 	createMap();
 });
 
-var boundingBoxesCounter = 0;
+var rectangles = [];
+var currentRectangle = null;
+var isMovingRectangle = false;
 
 function createMap(){
 	var centerPoint = new google.maps.LatLng(43.354810, -5.851805); // Oviedo, Asturias, Spain.
@@ -11,13 +13,7 @@ function createMap(){
 		heading : 90,
 		tilt : 45,
 		center : centerPoint,
-		mapTypeControl : false,
-		zoomControl : true,
-		zoomControlOptions : {
-			style : google.maps.ZoomControlStyle.LARGE
-		},
-		streetViewControl: false,
-		mapTypeId : google.maps.MapTypeId.ROADMAP
+		mapTypeControl : false
 	};
 
 	// Initialize variables
@@ -36,27 +32,31 @@ function createMap(){
 	});
 	drawingManager.setMap(map);
 
-	google.maps.event.addListener(drawingManager, 'rectanglecomplete', rectangleCompleteHandler);
+	google.maps.event.addListener(drawingManager, 'rectanglecomplete', function(rectangle){
+		appendBoundingBoxInfo(rectangle);
+		rectangles.push(rectangle);
+
+		google.maps.event.addListener(rectangle, 'bounds_changed', function(){
+			$('section.boxes').empty();
+			$(rectangles).each(function(index, rectangle){
+				appendBoundingBoxInfo(rectangle);
+			});
+		});
+	});
 }
 
-function rectangleCompleteHandler(rectangle){
-	boundingBoxesCounter += 1;
-
+function appendBoundingBoxInfo(rectangle){
+	//Obtainig bouding boxes
 	var swLong = rectangle.getBounds().getSouthWest().lng().toFixed(2);
 	var swLat  = rectangle.getBounds().getSouthWest().lat().toFixed(2);
 	var neLong = rectangle.getBounds().getNorthEast().lng().toFixed(2);
 	var neLat  = rectangle.getBounds().getNorthEast().lat().toFixed(2); 
 	
+	//Creating element for the info panel
 	var newBox = $(document.createElement('div'));
 	$(newBox).addClass('box');
-	$(newBox).attr('id', 'box_' + boundingBoxesCounter);
-	$(newBox).append('<h3>Box</h3>');
-	$(newBox).append('<p>Coordinates for Twitter:</p>');
+	$(newBox).append('<h3>Bounding Box</h3>');
+	$(newBox).append('<p>Coordinates:</p>');
 	$(newBox).append('<p>' + swLong + ', ' + swLat + ', ' + neLong + ', ' + neLat + '</p>');
-
 	$('section.boxes').append(newBox);
-
-	google.maps.event.addListener(rectangle, 'click', function(event){
-		console.log($('#box_1'));
-	});
 }
