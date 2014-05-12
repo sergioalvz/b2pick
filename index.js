@@ -25,6 +25,10 @@ salvarezsuar.BoundingBoxesManager = (function() {
     boundingBoxes.push(boundingBox);
   };
 
+  var clear = function() {
+    boundingBoxes.length = 0;
+  };
+
   var toXML = function() {
     var boundingBoxes2xml = boundingBoxes.map(function(boundingBox){
       var xml = "";
@@ -51,7 +55,8 @@ salvarezsuar.BoundingBoxesManager = (function() {
 
   return {
     add: add,
-    toXML: toXML
+    toXML: toXML,
+    clear: clear
   };
 })();
 
@@ -92,6 +97,8 @@ salvarezsuar.MapModule = (function(){
 
       google.maps.event.addListener(rectangle, 'bounds_changed', function(){
         $('section.boxes').empty();
+        salvarezsuar.BoundingBoxesManager.clear();
+
         $(rectangles).each(function(index, rectangle){
           appendBoundingBoxInfo(rectangle);
         });
