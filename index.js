@@ -13,7 +13,9 @@ $(document).ready(function(){
   });
 
   $('a#inline').fancybox({
-    'width': 500
+    'width': 500,
+    'autoDimensions': false,
+    'autoSize': false
   });
 });
 
