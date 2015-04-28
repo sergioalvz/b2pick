@@ -3,7 +3,7 @@
 B2pick.Models = B2pick.Models || {};
 
 (function () {
-  'use strict';
+    'use strict';
 
-  B2pick.Models.LatLng = Backbone.Model.extend({});
+    B2pick.Models.LatLng = Backbone.Model.extend({});
 })();
