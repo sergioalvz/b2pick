@@ -7,7 +7,10 @@ window.B2pick = {
   Routers: {},
   init: function () {
     'use strict';
-    console.log('Hello from Backbone!');
+
+    var app = new B2pick.Views.App();
+    app.setElement($( '.js-application' ));
+    app.render();
   }
 };
 
