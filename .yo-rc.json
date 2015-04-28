@@ -4,7 +4,7 @@
     "appName": "B2pick",
     "coffee": false,
     "testFramework": "mocha",
-    "templateFramework": "lodash",
+    "templateFramework": "handlebars",
     "sassBootstrap": false,
     "includeRequireJS": false
   },
