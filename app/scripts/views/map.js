@@ -9,20 +9,28 @@ B2pick.Views = B2pick.Views || {};
 
         template: JST['app/scripts/templates/map.hbs'],
 
-        tagName: 'div',
-
-        id: '',
-
-        className: '',
-
         events: {},
 
-        initialize: function () {
-            this.listenTo(this.model, 'change', this.render);
+        mapOptions: {
+            center: {
+                lat: 43.3694869,
+                lng: -5.8486578
+            },
+            zoom: 4
+        },
+
+        initialize: function() {
+            this.map = null;
+        },
+
+        renderMapCanvas: function() {
+            var $mapCanvas = this.$( '.js-map-canvas' );
+            this.map = new google.maps.Map($mapCanvas[0], this.mapOptions);
         },
 
         render: function () {
-            this.$el.html(this.template(this.model.toJSON()));
+            this.$el.html(this.template());
+            this.renderMapCanvas();
         }
 
     });

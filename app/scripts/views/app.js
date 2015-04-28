@@ -12,13 +12,15 @@ B2pick.Views = B2pick.Views || {};
         events: {},
 
         renderSidebar: function() {
-          new B2pick.Views.Sidebar()
-            .setElement($( '.js-sidebar' ))
-            .render();
+            new B2pick.Views.Sidebar()
+              .setElement(this.$( '.js-sidebar' ))
+              .render();
         },
 
         renderMap: function() {
-
+            new B2pick.Views.Map()
+              .setElement(this.$( '.js-map' ))
+              .render();
         },
 
         render: function () {
