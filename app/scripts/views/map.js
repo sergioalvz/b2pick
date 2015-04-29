@@ -8,9 +8,7 @@ B2pick.Views = B2pick.Views || {};
     B2pick.Views.Map = Backbone.View.extend({
 
         template: JST['app/scripts/templates/map.hbs'],
-
-        events: {},
-
+        
         mapOptions: {
             center: {
                 lat: 43.3694869,
@@ -35,16 +33,16 @@ B2pick.Views = B2pick.Views || {};
         initialize: function() {
             this.map = null;
             this.drawingManager = null;
+
+            this.listenTo(B2pick.mapChannel, 'map:boundingBoxCreated', this.onBoundingBoxCreated);
+        },
+
+        onBoundingBoxCreated: function(boundingBox) {
+            console.log(boundingBox);
         },
 
         onRectangleComplete: function(rectangle) {
-            var bounds = rectangle.getBounds();
-            var boundingBoxAttributes = {
-                southWest: B2pick.Models.LatLng.parseFromGoogleLatLng(bounds.getSouthWest()),
-                northEast: B2pick.Models.LatLng.parseFromGoogleLatLng(bounds.getNorthEast())
-            };
-
-            B2pick.mapChannel.trigger('map:newBoundingBox', boundingBoxAttributes);
+            B2pick.mapChannel.trigger('map:newBoundingBox', rectangle);
         },
 
         renderMapCanvas: function() {
