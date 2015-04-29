@@ -5,6 +5,7 @@ window.B2pick = {
     Collections: {},
     Views: {},
     Routers: {},
+    mapChannel: Backbone.Radio.channel('map'),
     init: function () {
         'use strict';
 

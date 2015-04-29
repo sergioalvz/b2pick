@@ -38,12 +38,19 @@ B2pick.Views = B2pick.Views || {};
         },
 
         onRectangleComplete: function(rectangle) {
-            console.log(rectangle);
+            var bounds = rectangle.getBounds();
+            var boundingBoxAttributes = {
+                southWest: B2pick.Models.LatLng.parseFromGoogleLatLng(bounds.getSouthWest()),
+                northEast: B2pick.Models.LatLng.parseFromGoogleLatLng(bounds.getNorthEast())
+            };
+
+            B2pick.mapChannel.trigger('map:newBoundingBox', boundingBoxAttributes);
         },
 
         renderMapCanvas: function() {
             var $mapCanvas = this.$( '.js-map-canvas' );
             this.map = new google.maps.Map($mapCanvas[0], this.mapOptions);
+
             this.drawingManager = new google.maps.drawing.DrawingManager(this.drawingManagerOptions);
             this.drawingManager.setMap(this.map);
 
