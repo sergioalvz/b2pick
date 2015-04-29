@@ -19,13 +19,39 @@ B2pick.Views = B2pick.Views || {};
             zoom: 4
         },
 
+        drawingManagerOptions: {
+            drawingControl: true,
+            drawingControlOptions: {
+                position: google.maps.ControlPosition.TOP_CENTER,
+                drawingModes: [ google.maps.drawing.OverlayType.RECTANGLE ]
+            },
+            rectangleOptions : {
+                draggable: true,
+                clickable: true,
+                editable: true
+            }
+        },
+
         initialize: function() {
             this.map = null;
+            this.drawingManager = null;
+        },
+
+        onRectangleComplete: function(rectangle) {
+            console.log(rectangle);
         },
 
         renderMapCanvas: function() {
             var $mapCanvas = this.$( '.js-map-canvas' );
             this.map = new google.maps.Map($mapCanvas[0], this.mapOptions);
+            this.drawingManager = new google.maps.drawing.DrawingManager(this.drawingManagerOptions);
+            this.drawingManager.setMap(this.map);
+
+            google.maps.event.addListener(
+                this.drawingManager,
+                'rectanglecomplete',
+                this.onRectangleComplete
+            );
         },
 
         render: function () {
