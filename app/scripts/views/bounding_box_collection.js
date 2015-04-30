@@ -27,8 +27,7 @@ B2pick.Views = B2pick.Views || {};
         render: function () {
           this.$el.empty();
 
-          var rendered_views = _(this.subviews()).invoke('render');
-          this.$el.append(rendered_views.value());
+          this.$el.append( _.invoke(this.subviews(), 'render') );
 
           return this.$el;
         }

@@ -8,7 +8,7 @@ B2pick.Views = B2pick.Views || {};
     B2pick.Views.Map = Backbone.View.extend({
 
         template: JST['app/scripts/templates/map.hbs'],
-        
+
         mapOptions: {
             center: {
                 lat: 43.3694869,
@@ -38,7 +38,6 @@ B2pick.Views = B2pick.Views || {};
         },
 
         onBoundingBoxCreated: function(boundingBox) {
-            console.log(boundingBox);
         },
 
         onRectangleComplete: function(rectangle) {
