@@ -7,6 +7,10 @@ B2pick.Models = B2pick.Models || {};
 
     B2pick.Models.BoundingBox = Backbone.Model.extend({
 
+        defaults: {
+          name: 'Bounding box'
+        }
+
     },{
         buildFromGoogleRectangle: function(rectangle) {
           var attributes = {
