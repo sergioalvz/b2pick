@@ -10,13 +10,18 @@ B2pick.Views = B2pick.Views || {};
         template: JST['app/scripts/templates/bounding_box_regular_name.hbs'],
 
         events: {
-            'click .js-edit-name': 'onEditNameClick'
+            'click .js-edit-name': 'onEditNameClick',
+            'click .js-remove': 'onRemoveClick'
+        },
+
+        onRemoveClick: function(event) {
+            event.preventDefault();
+            this.model.trigger('removeMe', this.model);
         },
 
         onEditNameClick: function(event) {
-          event.preventDefault();
-
-          B2pick.sidebarChannel.trigger('sidebar:editBoudingBoxName');
+            event.preventDefault();
+            this.model.trigger('editName');
         },
 
         render: function () {

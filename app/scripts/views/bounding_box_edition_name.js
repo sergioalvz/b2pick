@@ -10,22 +10,34 @@ B2pick.Views = B2pick.Views || {};
         template: JST['app/scripts/templates/bounding_box_edition_name.hbs'],
 
         events: {
-          'click .js-save-name': 'onSaveNameClick'
+            'click .js-save-name': 'onSaveNameClick'
         },
 
         onSaveNameClick: function(event) {
-          event.preventDefault();
+            event.preventDefault();
 
-          var name = this.$( '.js-name-input' ).val();
-          this.model.set('name', name);
+            var name = this.$( '.js-name-input' ).val();
+            this.model.set('name', name);
 
-          B2pick.sidebarChannel.trigger('sidebar:saveBoudingBoxName');
+            this.model.trigger('saveName');
+        },
+
+        viewAttributes: function() {
+          return {
+              name: this.model.get('name')
+          };
         },
 
         render: function () {
-            this.$el.html(this.template({
-                name: this.model.get('name')
-            }));
+            this.$el.html(this.template(this.viewAttributes()));
+
+            var $name = this.$( '.js-name-input' );
+            var nameTextLength = $name.val().length;
+
+            $name.focus();
+            $name[0].setSelectionRange(nameTextLength, nameTextLength);
+
+            return this.$el;
         }
 
     });

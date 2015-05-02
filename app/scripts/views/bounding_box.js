@@ -14,8 +14,8 @@ B2pick.Views = B2pick.Views || {};
         initialize: function () {
             this.currentNameView = null;
 
-            this.listenTo(B2pick.sidebarChannel, 'sidebar:editBoudingBoxName', this.onEditBoundingBoxName);
-            this.listenTo(B2pick.sidebarChannel, 'sidebar:saveBoudingBoxName', this.onSaveBoundingBoxName);
+            this.listenTo(this.model, 'editName', this.onEditBoundingBoxName);
+            this.listenTo(this.model, 'saveName', this.onSaveBoundingBoxName);
         },
 
         onEditBoundingBoxName: function() {
