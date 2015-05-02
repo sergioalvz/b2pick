@@ -12,14 +12,17 @@ B2pick.Views = B2pick.Views || {};
         initialize: function() {
           this.boundingBoxCollection = new B2pick.Collections.BoundingBox();
 
-          this.listenTo(B2pick.mapChannel, 'map:newBoundingBox', this.onNewBoundingBox);
+          B2pick.mapChannel.reply('map:newBoundingBox', this.onNewBoundingBox());
         },
 
-        onNewBoundingBox: function(rectangle) {
-          var boundingBox = B2pick.Models.BoundingBox.buildFromGoogleRectangle(rectangle);
-          this.boundingBoxCollection.add(boundingBox);
+        onNewBoundingBox: function() {
+          var that = this;
+          return function(rectangle) {
+              var boundingBox = B2pick.Models.BoundingBox.buildFromGoogleRectangle(rectangle);
+              that.boundingBoxCollection.add(boundingBox);
 
-          B2pick.mapChannel.trigger('map:boundingBoxCreated', boundingBox);
+              return boundingBox;
+          };
         },
 
         renderBoundingBoxesCollectionView: function() {
