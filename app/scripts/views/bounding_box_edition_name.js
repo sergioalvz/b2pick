@@ -9,7 +9,18 @@ B2pick.Views = B2pick.Views || {};
 
         template: JST['app/scripts/templates/bounding_box_edition_name.hbs'],
 
-        events: {},
+        events: {
+          'click .js-save-name': 'onSaveNameClick'
+        },
+
+        onSaveNameClick: function(event) {
+          event.preventDefault();
+
+          var name = this.$( '.js-name-input' ).val();
+          this.model.set('name', name);
+
+          B2pick.sidebarChannel.trigger('sidebar:saveBoudingBoxName');
+        },
 
         render: function () {
             this.$el.html(this.template({

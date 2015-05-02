@@ -12,39 +12,45 @@ B2pick.Views = B2pick.Views || {};
         tagName: 'li',
 
         initialize: function () {
+            this.currentNameView = null;
+
             this.listenTo(B2pick.sidebarChannel, 'sidebar:editBoudingBoxName', this.onEditBoundingBoxName);
+            this.listenTo(B2pick.sidebarChannel, 'sidebar:saveBoudingBoxName', this.onSaveBoundingBoxName);
         },
 
         onEditBoundingBoxName: function() {
           this.clearNameWrapper();
-          this.renderEditionName();
+          this.renderNameView('Edition');
+        },
+
+        onSaveBoundingBoxName: function() {
+          this.clearNameWrapper();
+          this.renderNameView('Regular');
         },
 
         clearNameWrapper: function() {
           this.$( '.js-name-wrapper' ).empty();
+
+          this.currentNameView.undelegateEvents();
+          this.currentNameView.stopListening();
         },
 
         formatCoordinate: function(coordinate) {
             return coordinate.toFixed(2);
         },
 
-        renderEditionName: function() {
-            new B2pick.Views.BoundingBoxEditionName({ model: this.model })
-                .setElement(this.$( '.js-name-wrapper' ))
-                .render();
-        },
+        renderNameView: function(type) {
+          var nameView = "BoundingBox" + type + "Name";
 
-        renderRegularName: function() {
-            new B2pick.Views.BoundingBoxRegularName({ model: this.model })
-                .setElement(this.$( '.js-name-wrapper' ))
-                .render();
+          this.currentNameView = new B2pick.Views[nameView]({ model: this.model });
+          this.currentNameView.setElement(this.$( '.js-name-wrapper' )).render();
         },
 
         viewAttributes: function() {
             return {
-                northEastLatitude: this.formatCoordinate(this.model.get('northEastLatitude')),
+                northEastLatitude:  this.formatCoordinate(this.model.get('northEastLatitude')),
                 northEastLongitude: this.formatCoordinate(this.model.get('northEastLongitude')),
-                southWestLatitude: this.formatCoordinate(this.model.get('southWestLatitude')),
+                southWestLatitude:  this.formatCoordinate(this.model.get('southWestLatitude')),
                 southWestLongitude: this.formatCoordinate(this.model.get('southWestLongitude'))
             };
         },
@@ -54,7 +60,7 @@ B2pick.Views = B2pick.Views || {};
 
             this.$el.html(this.template(this.viewAttributes()));
 
-            this.renderRegularName();
+            this.renderNameView('Regular');
 
             return this.$el;
         }
