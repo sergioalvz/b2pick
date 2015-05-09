@@ -51,6 +51,10 @@ module.exports = function (grunt) {
                 ],
                 tasks: ['handlebars']
             },
+            styles: {
+                files: ['<%= config.app %>/sass/{,*/}*.scss'],
+                tasks: ['sass']
+            },
             test: {
                 files: ['<%= yeoman.app %>/scripts/{,*/}*.js', 'test/spec/**/*.js'],
                 tasks: ['test:true']
@@ -227,7 +231,18 @@ module.exports = function (grunt) {
                     ]
                 }
             }
-        }
+        },
+        sass: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= yeoman.app %>/sass',
+                    src: ['*.scss', '*.sass'],
+                    dest: '<%= yeoman.app %>/styles',
+                    ext: '.css'
+                }]
+            }
+        },
     });
 
     grunt.registerTask('createDefaultTemplate', function () {
@@ -248,6 +263,7 @@ module.exports = function (grunt) {
             return grunt.task.run([
                 'clean:server',
                 'createDefaultTemplate',
+                'sass',
                 'handlebars',
                 'connect:test',
                 'open:test',
@@ -258,6 +274,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'createDefaultTemplate',
+            'sass',
             'handlebars',
             'connect:livereload',
             'open:server',
@@ -270,6 +287,7 @@ module.exports = function (grunt) {
         var testTasks = [
                 'clean:server',
                 'createDefaultTemplate',
+                'sass',
                 'handlebars',
                 'connect:test',
                 'mocha',
@@ -287,6 +305,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'createDefaultTemplate',
+        'sass',
         'handlebars',
         'useminPrepare',
         'imagemin',
