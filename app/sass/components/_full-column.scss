@@ -1,0 +1,12 @@
+.full-column {
+  float: left;
+  height: 100vh;
+
+  &--sidebar {
+    width: 40%;
+  }
+
+  &--map {
+    width: 60%;
+  }
+}
