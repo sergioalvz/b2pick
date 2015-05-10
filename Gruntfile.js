@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                 tasks: ['handlebars']
             },
             styles: {
-                files: ['<%= config.app %>/sass/{,*/}*.scss'],
+                files: ['<%= yeoman.app %>/sass/{,*/}*.scss'],
                 tasks: ['sass']
             },
             test: {
