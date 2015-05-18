@@ -3,7 +3,7 @@
   height: 100vh;
 
   &--sidebar {
-    width: 40%;
+    width: calc(40% - 20px);
   }
 
   &--map {

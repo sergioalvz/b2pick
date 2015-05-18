@@ -11,6 +11,8 @@ B2pick.Views = B2pick.Views || {};
 
         tagName: 'li',
 
+        className: 'bounding-box',
+
         initialize: function () {
             this.currentNameView = null;
 

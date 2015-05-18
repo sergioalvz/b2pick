@@ -1,0 +1,24 @@
+.bounding-box {
+  padding: 10px;
+}
+
+.bounding-box__input {
+  font-size: 16px;
+  font-family: serif;
+}
+
+.bounding-box__name {
+  font-weight: bold;
+}
+
+.bounding-box__name__action {
+  font-weight: normal;
+  font-size: 16px;
+  text-transform: uppercase;
+
+  color: $black;
+}
+
+.bounding-box__coordinates {
+  margin-top: 5px;
+}
