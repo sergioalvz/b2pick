@@ -27,7 +27,7 @@ B2pick.Views = B2pick.Views || {};
 
         renderBoundingBoxesCollectionView: function() {
           new B2pick.Views.BoundingBoxCollection({ collection: this.boundingBoxCollection })
-              .setElement($( '.js-bounding-boxes' ))
+              .setElement($( '.js-bounding-box-collection' ))
               .render();
         },
 
