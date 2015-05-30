@@ -28,8 +28,8 @@ B2pick.Views = B2pick.Views || {};
         },
 
         initialize: function() {
-          this._boundingBoxesIndexView = null;
-          this._boundingBoxesDownloadView = null;
+            this._boundingBoxesIndexView = null;
+            this._boundingBoxesDownloadView = null;
         },
 
         renderActions: function() {
@@ -37,21 +37,21 @@ B2pick.Views = B2pick.Views || {};
         },
 
         renderBoundingBoxesDownloadView: function() {
-          if(!this._boundingBoxesDownloadView) {
-            this._boundingBoxesDownloadView = new B2pick.Views.BoundingBoxCollectionDownload({
-              collection: this.collection
-            });
-          }
+            if(!this._boundingBoxesDownloadView) {
+                this._boundingBoxesDownloadView = new B2pick.Views.BoundingBoxCollectionDownload({
+                    collection: this.collection
+                });
+            }
 
-          var $boundingBoxes = this.$( '.js-bounding-boxes' );
-          this._boundingBoxesDownloadView.setElement($boundingBoxes).render();
+            var $boundingBoxes = this.$( '.js-bounding-boxes' );
+            this._boundingBoxesDownloadView.setElement($boundingBoxes).render();
         },
 
         renderBoundingBoxesIndexView: function() {
             if(!this._boundingBoxesIndexView) {
-              this._boundingBoxesIndexView = new B2pick.Views.BoundingBoxCollectionIndex({
-                collection: this.collection
-              });
+                this._boundingBoxesIndexView = new B2pick.Views.BoundingBoxCollectionIndex({
+                    collection: this.collection
+                });
             }
 
             var $boundingBoxes = this.$( '.js-bounding-boxes' );
