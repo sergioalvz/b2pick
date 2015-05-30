@@ -1866,4 +1866,7 @@ table {
 .sidebar__section__title {
   font-size: 24px; }
 
+.text-button--hidden {
+  display: none; }
+
 /*# sourceMappingURL=main.css.map */

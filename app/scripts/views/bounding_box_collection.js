@@ -6,6 +6,11 @@ B2pick.Views = B2pick.Views || {};
     'use strict';
 
     B2pick.Views.BoundingBoxCollection = Backbone.View.extend({
+        STATUS: {
+          INDEX: 'index',
+          DOWNLOAD: 'download'
+        },
+
         template: JST['app/scripts/templates/bounding_box_collection.hbs'],
 
         events: {
@@ -16,52 +21,51 @@ B2pick.Views = B2pick.Views || {};
         onDownload: function(event) {
             event.preventDefault();
 
-            this.renderBoundingBoxesDownloadView();
+            this._status = this.STATUS.DOWNLOAD;
+
+            this.renderBoundingBoxesView('Download');
             this.renderActions();
         },
 
         onBack: function(event) {
             event.preventDefault();
 
-            this.renderBoundingBoxesIndexView();
+            this._status = this.STATUS.INDEX;
+
+            this.renderBoundingBoxesView('Index');
             this.renderActions();
         },
 
         initialize: function() {
-            this._boundingBoxesIndexView = null;
-            this._boundingBoxesDownloadView = null;
+            this._boundingBoxesView = null;
+            this._status = this.STATUS.INDEX;
         },
 
         renderActions: function() {
-            // TODO
+            var $download = this.$( '.js-download' );
+            var $back = this.$( '.js-back' );
+
+            $download.toggleClass('text-button--hidden', this._status !== this.STATUS.INDEX);
+            $back.toggleClass('text-button--hidden', this._status !== this.STATUS.DOWNLOAD);
         },
 
-        renderBoundingBoxesDownloadView: function() {
-            if(!this._boundingBoxesDownloadView) {
-                this._boundingBoxesDownloadView = new B2pick.Views.BoundingBoxCollectionDownload({
-                    collection: this.collection
-                });
-            }
+        renderBoundingBoxesView: function(viewType) {
+          if(this._boundingBoxesView) {
+              this._boundingBoxesView.undelegateEvents();
+              this._boundingBoxesView.stopListening();
+          }
 
-            var $boundingBoxes = this.$( '.js-bounding-boxes' );
-            this._boundingBoxesDownloadView.setElement($boundingBoxes).render();
-        },
-
-        renderBoundingBoxesIndexView: function() {
-            if(!this._boundingBoxesIndexView) {
-                this._boundingBoxesIndexView = new B2pick.Views.BoundingBoxCollectionIndex({
-                    collection: this.collection
-                });
-            }
-
-            var $boundingBoxes = this.$( '.js-bounding-boxes' );
-            this._boundingBoxesIndexView.setElement($boundingBoxes).render();
+          var klass = B2pick.Views['BoundingBoxCollection' + viewType];
+          this._boundingBoxesView = new klass({ collection: this.collection });
+          this._boundingBoxesView.setElement( this.$( '.js-bounding-boxes' ) );
+          this._boundingBoxesView.render();
         },
 
         render: function () {
             this.$el.html(this.template());
 
-            this.renderBoundingBoxesIndexView();
+            this.renderBoundingBoxesView('Index');
+            this.renderActions();
 
             return this.$el;
         }
