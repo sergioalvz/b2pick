@@ -6,16 +6,29 @@ B2pick.Views = B2pick.Views || {};
     'use strict';
 
     B2pick.Views.BoundingBoxEditionName = Backbone.View.extend({
+        ENTER_KEY_CODE: 13,
 
         template: JST['app/scripts/templates/bounding_box_edition_name.hbs'],
 
         events: {
-            'click .js-save-name': 'onSaveNameClick'
+            'click .js-save-name': 'onSaveNameClick',
+            'keypress .js-name-input': 'onNameInputKeyPress'
         },
 
         onSaveNameClick: function(event) {
             event.preventDefault();
+            this.save();
+        },
 
+        onNameInputKeyPress: function(event) {
+            var key = event.keyCode;
+
+            if(key === this.ENTER_KEY_CODE) {
+                this.save();
+            }
+        },
+
+        save: function() {
             var name = this.$( '.js-name-input' ).val();
             this.model.set('name', name);
 
@@ -23,9 +36,9 @@ B2pick.Views = B2pick.Views || {};
         },
 
         viewAttributes: function() {
-          return {
-              name: this.model.get('name')
-          };
+            return {
+                name: this.model.get('name')
+            };
         },
 
         render: function () {
