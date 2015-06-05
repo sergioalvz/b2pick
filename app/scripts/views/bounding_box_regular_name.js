@@ -10,7 +10,7 @@ B2pick.Views = B2pick.Views || {};
         template: JST['app/scripts/templates/bounding_box_regular_name.hbs'],
 
         events: {
-            'click .js-edit-name': 'onEditNameClick',
+            'click .js-name': 'onEditNameClick',
             'click .js-remove': 'onRemoveClick'
         },
 

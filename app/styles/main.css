@@ -1822,7 +1822,7 @@ table {
   content: ""; }
 
 .bounding-box {
-  padding: 10px; }
+  padding: 10px 10px 10px 0; }
 
 .bounding-box__input {
   font-size: 16px;
@@ -1868,5 +1868,11 @@ table {
 
 .text-button--hidden {
   display: none; }
+
+.editable-text {
+  border-bottom-width: 2px;
+  border-bottom-style: dotted;
+  cursor: pointer;
+  text-transform: uppercase; }
 
 /*# sourceMappingURL=main.css.map */
