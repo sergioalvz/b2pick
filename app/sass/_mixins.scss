@@ -1,0 +1,18 @@
+@mixin font-light {
+  font-family: $sans-serif-family;
+  font-weight: 300;
+}
+
+@mixin font-regular {
+  font-family: $sans-serif-family;
+  font-weight: 400;
+}
+
+@mixin font-bold {
+  font-family: $sans-serif-family;
+  font-weight: 700;
+}
+
+@mixin font-monospace {
+  font-family: $monospace-family;
+}

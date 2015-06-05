@@ -2,6 +2,8 @@
 @import 'libs/font-awesome/font-awesome';
 
 @import 'variables';
+@import 'fonts';
+@import 'mixins';
 
 @import 'components/bounding-box';
 @import 'components/full-column';
@@ -9,3 +11,4 @@
 @import 'components/sidebar';
 @import 'components/text-button';
 @import 'components/editable-text';
+@import 'components/code-block';

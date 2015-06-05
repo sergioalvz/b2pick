@@ -1,3 +1,7 @@
+.text-button {
+  @include font-light;
+}
+
 .text-button--hidden {
   display: none;
 }

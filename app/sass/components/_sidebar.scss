@@ -2,15 +2,21 @@
   padding: 0 10px;
 }
 .sidebar__title {
+  @include font-light;
+
   font-size: 48px;
   margin: 30px 0 5px;
 }
 
 .sidebar__subtitle {
+  @include font-light;
+
   font-style: italic;
   margin-bottom: 30px;
 }
 
 .sidebar__section__title {
+  @include font-regular;
+
   font-size: 24px;
 }

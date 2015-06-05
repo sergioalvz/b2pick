@@ -1,4 +1,6 @@
 @charset "UTF-8";
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400,700);
+@import url(http://fonts.googleapis.com/css?family=Inconsolata);
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -1825,19 +1827,21 @@ table {
   padding: 10px 0; }
 
 .bounding-box__input {
-  font-size: 16px;
-  font-family: serif; }
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 16px; }
 
 .bounding-box__name {
-  font-weight: bold; }
+  font-family: "Lato", sans-serif;
+  font-weight: 700; }
 
 .bounding-box__name__action {
-  font-weight: normal;
   font-size: 16px;
-  text-transform: uppercase;
   color: #000; }
 
 .bounding-box__coordinates {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
   margin-top: 5px; }
 
 .full-column {
@@ -1856,15 +1860,25 @@ table {
   padding: 0 10px; }
 
 .sidebar__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
   font-size: 48px;
   margin: 30px 0 5px; }
 
 .sidebar__subtitle {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
   font-style: italic;
   margin-bottom: 30px; }
 
 .sidebar__section__title {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
   font-size: 24px; }
+
+.text-button {
+  font-family: "Lato", sans-serif;
+  font-weight: 300; }
 
 .text-button--hidden {
   display: none; }
@@ -1872,7 +1886,9 @@ table {
 .editable-text {
   border-bottom-width: 2px;
   border-bottom-style: dotted;
-  cursor: pointer;
-  text-transform: uppercase; }
+  cursor: pointer; }
+
+.code-block {
+  font-family: "Inconsolata", monospace; }
 
 /*# sourceMappingURL=main.css.map */

@@ -3,22 +3,23 @@
 }
 
 .bounding-box__input {
+  @include font-bold;
+
   font-size: 16px;
-  font-family: serif;
 }
 
 .bounding-box__name {
-  font-weight: bold;
+  @include font-bold;
 }
 
 .bounding-box__name__action {
-  font-weight: normal;
   font-size: 16px;
-  text-transform: uppercase;
 
   color: $black;
 }
 
 .bounding-box__coordinates {
+  @include font-regular;
+
   margin-top: 5px;
 }
