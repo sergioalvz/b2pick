@@ -19,7 +19,15 @@
 }
 
 .bounding-box__coordinates {
-  @include font-regular;
+  @include font-light;
 
   margin-top: 5px;
+}
+
+.bounding-box__coordinates__icon {
+  margin-right: 3px;
+
+  &--twitter {
+    color: $twitter;
+  }
 }

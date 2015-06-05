@@ -1841,8 +1841,13 @@ table {
 
 .bounding-box__coordinates {
   font-family: "Lato", sans-serif;
-  font-weight: 400;
+  font-weight: 300;
   margin-top: 5px; }
+
+.bounding-box__coordinates__icon {
+  margin-right: 3px; }
+  .bounding-box__coordinates__icon--twitter {
+    color: #55acee; }
 
 .full-column {
   float: left;
@@ -1868,7 +1873,6 @@ table {
 .sidebar__subtitle {
   font-family: "Lato", sans-serif;
   font-weight: 300;
-  font-style: italic;
   margin-bottom: 30px; }
 
 .sidebar__section__title {
