@@ -1919,6 +1919,8 @@ table {
   cursor: pointer; }
 
 .code-block {
-  font-family: "Inconsolata", monospace; }
+  font-family: "Inconsolata", monospace;
+  padding: 15px;
+  background-color: #ccc; }
 
 /*# sourceMappingURL=main.css.map */
