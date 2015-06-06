@@ -1833,9 +1833,11 @@ table {
 
 .bounding-box__name {
   font-family: "Lato", sans-serif;
-  font-weight: 700; }
+  font-weight: 700;
+  margin-bottom: 10px; }
 
 .bounding-box__name__action {
+  float: right;
   font-size: 16px;
   color: #000; }
 

@@ -10,9 +10,12 @@
 
 .bounding-box__name {
   @include font-bold;
+
+  margin-bottom: 10px;
 }
 
 .bounding-box__name__action {
+  float: right;
   font-size: 16px;
 
   color: $black;
