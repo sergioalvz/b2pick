@@ -3,6 +3,7 @@
   height: 100vh;
 
   &--sidebar {
+    overflow: auto;
     width: calc(40% - 20px);
   }
 

@@ -1853,6 +1853,7 @@ table {
   float: left;
   height: 100vh; }
   .full-column--sidebar {
+    overflow: auto;
     width: calc(40% - 20px); }
   .full-column--map {
     width: 60%; }
