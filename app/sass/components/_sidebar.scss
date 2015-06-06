@@ -17,13 +17,14 @@
 
 .sidebar__section__header {
   display: inline-table;
+  margin-bottom: 15px;
   table-layout: fixed;
   width: 100%;
 }
 
 %sidebar-section-cell {
   display: table-cell;
-  width: 50%;
+  vertical-align: middle;
 }
 
 .sidebar__section__title {
@@ -31,11 +32,13 @@
 
   @include font-regular;
 
+  width: 90%;
+
   font-size: 24px;
 }
 
 .sidebar__section__actions {
   @extend %sidebar-section-cell;
 
-  text-align: right;
+  width: 10%;
 }

@@ -1877,20 +1877,22 @@ table {
 
 .sidebar__section__header {
   display: inline-table;
+  margin-bottom: 15px;
   table-layout: fixed;
   width: 100%; }
 
 .sidebar__section__title, .sidebar__section__actions {
   display: table-cell;
-  width: 50%; }
+  vertical-align: middle; }
 
 .sidebar__section__title {
   font-family: "Lato", sans-serif;
   font-weight: 400;
+  width: 90%;
   font-size: 24px; }
 
 .sidebar__section__actions {
-  text-align: right; }
+  width: 10%; }
 
 .button {
   display: inline-table;
