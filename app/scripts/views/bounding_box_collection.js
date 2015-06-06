@@ -45,8 +45,8 @@ B2pick.Views = B2pick.Views || {};
             var $download = this.$( '.js-download' );
             var $back = this.$( '.js-back' );
 
-            $download.toggleClass('text-button--hidden', this._status !== this.STATUS.INDEX);
-            $back.toggleClass('text-button--hidden', this._status !== this.STATUS.DOWNLOAD);
+            $download.toggleClass('button--hidden', this._status !== this.STATUS.INDEX);
+            $back.toggleClass('button--hidden', this._status !== this.STATUS.DOWNLOAD);
         },
 
         renderBoundingBoxesView: function(viewType) {

@@ -1892,7 +1892,7 @@ table {
 .sidebar__section__actions {
   text-align: right; }
 
-.text-button {
+.button {
   display: inline-table;
   height: 42px;
   width: 42px;
@@ -1902,10 +1902,10 @@ table {
   text-align: center;
   text-decoration: none; }
 
-.text-button--hidden {
+.button--hidden {
   display: none; }
 
-.text-button__icon {
+.button__icon {
   display: table-cell;
   vertical-align: middle;
   color: #fff;
