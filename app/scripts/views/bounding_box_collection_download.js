@@ -8,10 +8,14 @@ B2pick.Views = B2pick.Views || {};
     B2pick.Views.BoundingBoxCollectionDownload = Backbone.View.extend({
         template: JST['app/scripts/templates/bounding_box_collection_download.hbs'],
 
+        initialize: function() {
+            this.listenTo(this.collection, 'add remove', this.render);
+        },
+
         viewAttributes: function() {
-          return {
-            json: JSON.stringify(this.collection, null, 2)
-          }
+            return {
+                json: JSON.stringify(this.collection, null, 2)
+            }
         },
 
         render: function () {

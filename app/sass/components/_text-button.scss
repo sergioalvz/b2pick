@@ -1,7 +1,23 @@
 .text-button {
-  @include font-light;
+  display: inline-table;
+  height: 42px;
+  width: 42px;
+
+  background-color: $button-background-color;
+  border-radius: 50%;
+  box-shadow: 1px 1px 1px $button-shadow-box-color;
+  text-align: center;
+  text-decoration: none;
 }
 
 .text-button--hidden {
   display: none;
+}
+
+.text-button__icon {
+  display: table-cell;
+  vertical-align: middle;
+
+  color: $white;
+  font-weight: 700;
 }
