@@ -1,0 +1,10 @@
+.download-type {
+  margin-bottom: 15px;
+}
+
+.download-type__title {
+  @include font-light;
+
+  font-size: 18px;
+  margin: 10px 0;
+}
