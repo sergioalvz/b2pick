@@ -11,13 +11,7 @@ B2pick.Views = B2pick.Views || {};
         template: JST['app/scripts/templates/bounding_box_edition_name.hbs'],
 
         events: {
-            'click .js-save-name': 'onSaveNameClick',
             'keypress .js-name-input': 'onNameInputKeyPress'
-        },
-
-        onSaveNameClick: function(event) {
-            event.preventDefault();
-            this.save();
         },
 
         onNameInputKeyPress: function(event) {

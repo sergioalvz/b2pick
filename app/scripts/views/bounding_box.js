@@ -13,11 +13,20 @@ B2pick.Views = B2pick.Views || {};
 
         className: 'bounding-box',
 
+        events: {
+            'click .js-remove': 'onRemoveClick'
+        },
+
         initialize: function () {
             this.currentNameView = null;
 
             this.listenTo(this.model, 'editName', this.onEditBoundingBoxName);
             this.listenTo(this.model, 'saveName', this.onSaveBoundingBoxName);
+        },
+
+        onRemoveClick: function(event) {
+          event.preventDefault();
+          this.model.trigger('removeMe', this.model);
         },
 
         onEditBoundingBoxName: function() {

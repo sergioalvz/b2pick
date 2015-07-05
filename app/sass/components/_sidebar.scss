@@ -7,38 +7,18 @@
 
   font-size: 48px;
   margin: 30px 0 5px;
+  text-align: center;
 }
 
 .sidebar__subtitle {
   @include font-light;
 
   margin-bottom: 30px;
-}
-
-.sidebar__section__header {
-  display: inline-table;
-  margin-bottom: 15px;
-  table-layout: fixed;
-  width: 100%;
-}
-
-%sidebar-section-cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.sidebar__section__title {
-  @extend %sidebar-section-cell;
-
-  @include font-regular;
-
-  width: 90%;
-
-  font-size: 24px;
+  text-align: center;
 }
 
 .sidebar__section__actions {
-  @extend %sidebar-section-cell;
+  margin-bottom: 30px;
 
-  width: 10%;
+  text-align: center;
 }

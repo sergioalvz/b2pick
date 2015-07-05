@@ -26,8 +26,14 @@ B2pick.Views = B2pick.Views || {};
             });
         },
 
+        viewAttributes: function() {
+          return {
+              hasBoundingBoxes: !this.collection.isEmpty()
+          };
+        },
+
         render: function () {
-            this.$el.html(this.template());
+            this.$el.html(this.template(this.viewAttributes()));
 
             var $boundingBoxes = this.$( '.js-collection' );
             $boundingBoxes.empty().append( _.invoke(this.subviews(), 'render') );

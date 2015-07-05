@@ -1,1 +1,13 @@
-<pre class="code-block">{{json}}</pre>
+{{#if hasBoundingBoxes}}
+<div class="download-type">
+  <h3 class="download-type__title"><i class="fa fa-twitter icon--twitter"></i> Twitter Streaming API</h3>
+  <pre class="code-block code-block--inline">{{twitter}}</pre>
+</div>
+
+<div class="download-type">
+  <h3 class="download-type__title">JSON</h3>
+  <pre class="code-block">{{json}}</pre>
+</div>
+{{else}}
+{{> empty_collection_placeholder}}
+{{/if}}

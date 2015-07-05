@@ -1,1 +1,5 @@
+{{#if hasBoundingBoxes}}
 <ul class="js-collection"></ul>
+{{else}}
+{{> empty_collection_placeholder}}
+{{/if}}

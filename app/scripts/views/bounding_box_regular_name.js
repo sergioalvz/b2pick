@@ -11,12 +11,6 @@ B2pick.Views = B2pick.Views || {};
 
         events: {
             'click .js-name': 'onEditNameClick',
-            'click .js-remove': 'onRemoveClick'
-        },
-
-        onRemoveClick: function(event) {
-            event.preventDefault();
-            this.model.trigger('removeMe', this.model);
         },
 
         onEditNameClick: function(event) {

@@ -1,5 +1,27 @@
 .bounding-box {
-  padding: 10px 0;
+  display: table;
+  margin-bottom: 20px;
+  table-layout: fixed;
+  width: 100%;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}
+
+.bounding-box__actions,
+.bounding-box__information {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.bounding-box__actions {
+  text-align: center;
+  width: 15%;
+}
+
+.bounding-box__actions__item {
+  cursor: pointer;
 }
 
 .bounding-box__input {
@@ -14,13 +36,6 @@
   margin-bottom: 10px;
 }
 
-.bounding-box__name__action {
-  float: right;
-  font-size: 16px;
-
-  color: $black;
-}
-
 .bounding-box__coordinates {
   @include font-light;
 
@@ -29,8 +44,4 @@
 
 .bounding-box__coordinates__icon {
   margin-right: 3px;
-
-  &--twitter {
-    color: $twitter;
-  }
 }

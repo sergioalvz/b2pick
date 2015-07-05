@@ -14,7 +14,7 @@ B2pick.Collections = B2pick.Collections || {};
         },
 
         onRemoveBoundingBox: function(boundingBox) {
-          this.remove(boundingBox);
+            this.remove(boundingBox);
         }
 
     });

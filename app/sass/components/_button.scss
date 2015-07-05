@@ -1,23 +1,24 @@
 .button {
-  display: inline-table;
-  height: 42px;
-  width: 42px;
+  @include font-bold;
 
-  background-color: $button-background-color;
-  border-radius: 50%;
-  box-shadow: 1px 1px 1px $button-shadow-box-color;
+  display: inline-block;
+  border: 3px $black solid;
+  padding: 10px 0;
+  width: 200px;
+
+  color: $black;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
+
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.button:hover {
+  background-color: $black;
+  color: $white;
 }
 
 .button--hidden {
   display: none;
-}
-
-.button__icon {
-  display: table-cell;
-  vertical-align: middle;
-
-  color: $white;
-  font-weight: 700;
 }

@@ -4,4 +4,9 @@
   padding: 15px;
 
   background-color: $code-block-background-color;
+  border-radius: 5px;
+}
+
+.code-block--inline {
+  overflow-x: auto;
 }
