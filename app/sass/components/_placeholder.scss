@@ -1,0 +1,8 @@
+.placeholder {
+  padding: 30px;
+  background-color: $placeholder-background-color;
+}
+
+.placeholder__text {
+  @include font-light;
+}
