@@ -54,7 +54,7 @@ B2pick.Views = B2pick.Views || {};
               this._boundingBoxesView.undelegateEvents();
               this._boundingBoxesView.stopListening();
           }
-
+          
           var klass = B2pick.Views['BoundingBoxCollection' + viewType];
           this._boundingBoxesView = new klass({ collection: this.collection });
           this._boundingBoxesView.setElement( this.$( '.js-bounding-boxes' ) );

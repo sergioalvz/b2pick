@@ -9,7 +9,7 @@
     "immed": true,
     "indent": 4,
     "latedef": true,
-    "newcap": true,
+    "newcap": false,
     "noarg": true,
     "quotmark": "single",
     "undef": true,
@@ -27,6 +27,7 @@
         "it": false,
         "assert": true,
         "expect": true,
-        "should": true
+        "should": true,
+        "google": false
     }
 }

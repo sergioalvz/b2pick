@@ -30,7 +30,7 @@ B2pick.Views = B2pick.Views || {};
                 hasBoundingBoxes: !this.collection.isEmpty(),
                 json: JSON.stringify(this.collection, null, 2),
                 twitter: this.toTwitter()
-            }
+            };
         },
 
         render: function () {

@@ -51,7 +51,7 @@ B2pick.Views = B2pick.Views || {};
         },
 
         renderNameView: function(type) {
-          var nameView = "BoundingBox" + type + "Name";
+          var nameView = 'BoundingBox' + type + 'Name';
 
           this.currentNameView = new B2pick.Views[nameView]({ model: this.model });
           this.currentNameView.setElement(this.$( '.js-name-wrapper' )).render();
